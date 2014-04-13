@@ -112,7 +112,7 @@ $.extend(MapsLib, {
 
         allColumns:false,
         distanceFilter: {
-            entries: [ ["Anywhere", "0", true], ["1/2 mile", ".5 miles"], ["1 mile"], ["2 miles"]]
+            entries: [ ["Anywhere", "0", true], ["2 blocks", "400 meters"], ["1/2 mile", ".5 miles"], ["1 mile"], ["2 miles"]]
         }, //close distanceFilter
 
         columns: [
