@@ -124,9 +124,18 @@ $.extend(MapsLib, {
                 ["Gone", "'Condition' = 0"],
                 ["Unknown", "'Condition' = 5"]
 
+            ]},//close label: Tile condition
+
+            {label: "Has image", type:"dropdown", entries: [
+                ["Show all", "", true],
+                ["Yes", "'image_link' contains 'http'"],
+                ["No", "'image_link' does not contain 'http'"]
+
+
+
             ]}
 
-        ]
+        ]//close columms
     }, //close searchPage
 
 
