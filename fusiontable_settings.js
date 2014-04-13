@@ -214,7 +214,7 @@ $.extend(MapsLib, {
     // //                                  append "DESC" to sort in reverse
     // listViewSortByColumn: "name",
 
-    customInfoboxHtml: "{{row.Address}}<br>{{#if row.image_link}}<img src = '{{row.image_link}}'>{{else}}No image available{{/if}}",
+    customInfoboxHtml: "{{row.Address}}, {{row.City}}, {{row.State}}, {{row.Country}}<br>{{#if row.image_link}}<a href='{{row.image_link}}'><img src = '{{row.image_link}}' style='width:100px;'></a>{{else}}No image available{{/if}}",
 
     // customInfoboxHtml: " \
     //     {{#if isListView}} \
