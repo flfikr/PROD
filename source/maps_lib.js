@@ -44,7 +44,7 @@ $.extend(MapsLib, {
     templateId:         (MapsLib.templateId == 0) ? 0 : (MapsLib.templateId || 3),
     mapOverlayLayers:   [],
     mapOverlayOrder:    [],
-    map_centroid:       new google.maps.LatLng(37.77, -122.45), // center on SF if all else fails
+    map_centroid:       new google.maps.LatLng(39.952666, -75.166541), // center on PHILADELPHIA if all else fails
     defaultZoom:        9,
 
     // markers
