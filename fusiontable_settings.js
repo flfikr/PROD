@@ -30,11 +30,11 @@ var MapsLib = MapsLib || {}; MapsLib.schemaVersion = 2;
     // See https://developers.google.com/fusiontables/docs/v1/migration_guide for more info
 
     // The encrypted Table ID of your Fusion Table (found under File => About)
-    MapsLib.fusionTableId = "13xmU6wANRJb0Niqcdz5Tr0xWh4AyV0yN10xMxPc";
+    MapsLib.fusionTableId = "1KjMxI_9vQAoIydWLeDsxaPCQF5uusih2O6LjIO9d";
 
     // *New Fusion Tables Requirement* API key. found at https://code.google.com/apis/console/
     // *Important* this key is for demonstration purposes. please register your own.
-    MapsLib.googleApiKey ="AIzaSyAMVBSXes-6P-gWaxRj20GK8NT6WDVpozM";
+    MapsLib.googleApiKey ="AIzaSyAt-73WNp-LVpud_sSlwJ7lk73sYSNq_4o";
     
 
     // DONE!  YOU COULD DELETE EVERYTHING AFTER THIS POINT AND STILL HAVE A WORKING APP.
@@ -107,6 +107,30 @@ $.extend(MapsLib, {
     //  If "allColumns" is true, "text" and "slider" columns will simply override label/match settings for the specified columns
     //  Text fields for numerical columns use exact match only.  (If you want range categories, create a drop-down)
 
+*/
+    searchPage: {
+
+        allColumns:false,
+        distanceFilter: {
+            entries: [ ["Anywhere", "0", true], ["1/2 mile", ".5 miles"], ["1 mile"], ["2 miles"]]
+        }, //close distanceFilter
+
+        columns: [
+            {label: "Tile condition", type: "dropdown", entries: [
+                ["Show all", "'Condition' < 999", true],
+                ["Good condition", "'Condition' = 3"],
+                ["Fair condition", "'Condition' = 2"],
+                ["Poor condition", "'Condition' = 1"],
+                ["Gone", "'Condition' = 0"],
+                ["Unknown", "'Condition' = 5"]
+
+            ]}
+
+        ]
+    }, //close searchPage
+
+
+/*
     searchPage: { 
         allColumns: false,
         distanceFilter: { 
@@ -136,14 +160,14 @@ $.extend(MapsLib, {
     // 3. CUSTOM CONTENT //
     ///////////////////////
 
-/*
+
     // Title bar (including title of website)
-    title: "SF Food Inspections",
+    title: "Toynbee Tiles",
 
     // Contents of the About Page.  You can use "{title}" to insert your title.
     aboutPage: " \
         <h3>About {title}</h3> \
-        <p>This is a demonstration of a Mobile Template using Fusion Tables.    Developed by SF Brigade for Code For America, it's an adaptation of Derek Eder's searchable Fusion Table template, licensed under the <a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/License' target='_blank'>MIT License</a>.    This particular application uses health inspection data for businesses in San Francisco.</p> \
+        <p>This is a map of Toynbee tiles around the world. If you find any data that's missing or inaccurate, let us know <a href=''>here</a>.</p>\
         <p>To use this template for your own Fusion Table data, <a href='https://github.com/sfbrigade/Mobile-Fusion-Tables' target='_blank'>clone this repository</a> and replace the fields inside fusiontable_settings.js to match your content.</p> \
         ",
 
@@ -155,19 +179,19 @@ $.extend(MapsLib, {
     templateId: 3,
     
     // This will go in your style block.  Useful if customizing your infoboxes.
-    customCSS: " \
-        .infobox-header, .ui-li-desc, li, #score-text { font-family: Arial, Helvetica, Geneva, sans-serif; white-space:normal;} \
-        .infobox-map { width:220px; height:107px;} \
-        .infobox-header { display:inline; padding-right: 10px; } \
-        .infobox-subheader { padding-top: 5px; } \
-        .moreinfo { margin-left:7px; min-width:18px; position:absolute; \
-                top:45%; bottom:45%; min-height:18px; } \
-        .score { float:left; font-size:medium; padding:5px; border:1px solid black; margin:2px 7px 5px 0px; } \
-        .score.grn_blank { background-color: #00de3c; color: white; } \
-        .score.ltblu_blank { background-color: #55d7d7; color: white; } \
-        .score.orange_blank { background-color: #ff9c00; color: white; } \
-        .score.red_blank { background-color: #fb6155; color: white; } \
-    ",
+    // customCSS: " \
+    //     .infobox-header, .ui-li-desc, li, #score-text { font-family: Arial, Helvetica, Geneva, sans-serif; white-space:normal;} \
+    //     .infobox-map { width:220px; height:107px;} \
+    //     .infobox-header { display:inline; padding-right: 10px; } \
+    //     .infobox-subheader { padding-top: 5px; } \
+    //     .moreinfo { margin-left:7px; min-width:18px; position:absolute; \
+    //             top:45%; bottom:45%; min-height:18px; } \
+    //     .score { float:left; font-size:medium; padding:5px; border:1px solid black; margin:2px 7px 5px 0px; } \
+    //     .score.grn_blank { background-color: #00de3c; color: white; } \
+    //     .score.ltblu_blank { background-color: #55d7d7; color: white; } \
+    //     .score.orange_blank { background-color: #ff9c00; color: white; } \
+    //     .score.red_blank { background-color: #fb6155; color: white; } \
+    // ",
 
     // customInfoboxHtml can be defined as a string or a function:
     //    STRING:    You can embed Handlebars expressions and variables.
@@ -184,50 +208,52 @@ $.extend(MapsLib, {
     //        - true when populating a row in the "List" view
 
     // delimitedColumns (optional): specify delimiter per column, and row.COLUMN_NAME will return an array
-    delimitedColumns: {"violations": ";"},
+    // delimitedColumns: {"violations": ";"},
 
-    // listViewSortByColumn (optional): specify column to sort by, instead of sorting by distance
-    //                                  append "DESC" to sort in reverse
-    listViewSortByColumn: "name",
+    // // listViewSortByColumn (optional): specify column to sort by, instead of sorting by distance
+    // //                                  append "DESC" to sort in reverse
+    // listViewSortByColumn: "name",
 
-    customInfoboxHtml: " \
-        {{#if isListView}} \
-            <div> \
-        {{else}} \
-            <div class='infobox-map'> \
-        {{/if}} \
-        <div class='score {{row.last_score_category}}'><span id='score-text'>{{row.last_score}}</span></div> \
-        <h4 class='infobox-header'>{{row.name}}</h4> \
-        <p class='ui-li-desc infobox-subheader'> \
-        {{#if isListView}} \
-            {{row.address}}</p> \
-        {{else}} \
-            <strong>Last inspected: {{row.last_inspection_date}}</strong> \
-            <br>{{row.address}}</p> \
-            <p class='ui-li-desc infobox-subheader'> \
-            {{#if row.violations}} \
-                <b>Recent violations ({{row.violations.length}}):</b> \
-                {{#each row.violations}} \
-                    <br>- {{this}} \
-                {{/each}} \
-            {{else}} \
-                <b>Recent violations:</b> None \
-            {{/if}} \
-        {{/if}} \
-        </p></div>",
+    customInfoboxHtml: "{{row.Address}}",
+
+    // customInfoboxHtml: " \
+    //     {{#if isListView}} \
+    //         <div> \
+    //     {{else}} \
+    //         <div class='infobox-map'> \
+    //     {{/if}} \
+    //     <div class='score {{row.last_score_category}}'><span id='score-text'>{{row.last_score}}</span></div> \
+    //     <h4 class='infobox-header'>{{row.name}}</h4> \
+    //     <p class='ui-li-desc infobox-subheader'> \
+    //     {{#if isListView}} \
+    //         {{row.address}}</p> \
+    //     {{else}} \
+    //         <strong>Last inspected: {{row.last_inspection_date}}</strong> \
+    //         <br>{{row.address}}</p> \
+    //         <p class='ui-li-desc infobox-subheader'> \
+    //         {{#if row.violations}} \
+    //             <b>Recent violations ({{row.violations.length}}):</b> \
+    //             {{#each row.violations}} \
+    //                 <br>- {{this}} \
+    //             {{/each}} \
+    //         {{else}} \
+    //             <b>Recent violations:</b> None \
+    //         {{/if}} \
+    //     {{/if}} \
+    //     </p></div>",
 
     // Infoboxes will also appear (unless blank) on your nearby or search address pins.
     // HTML is OK.  Use "{address}" to denote the entered address for addressPinInfobox.
     nearbyPinInfobox: "You are here.",
     addressPinInfobox: "{address}",
-*/
+
 
 
     ////////////////////////
     // 4. MAP PREFERENCES //
     ////////////////////////
 
-/*
+
     // Override the location column in your Fusion Table (useful if you have multiple columns)
     // NOTE: if you have "latitude" and "longitude" columns, just use "latitude"
     //locationColumn:  "latitude",
@@ -237,7 +263,7 @@ $.extend(MapsLib, {
     defaultMapBounds: {
 
         // Use [latitude, longitude] or address
-        center: "San Francisco, CA",
+        center: "Philadelphia, PA",
 
         // "X miles" or "X meters"
         radius: "6 miles"
@@ -250,7 +276,7 @@ $.extend(MapsLib, {
         // If true: use nearby location only if we're within default map bounds
         //          otherwise, post boundsExceededMessage (if non-empty) and use mapDefaultCenter.
         onlyWithinDefaultMapBounds: true,
-        boundsExceededMessage:      "Your location is far away from San Francisco.    Defaulting to city limits.",
+        //boundsExceededMessage:      "Your location is far away from San Francisco.    Defaulting to city limits.",
 
         // use this zoom radius if starting at nearby location
         nearbyZoomRadius:           "200 meters",
@@ -261,7 +287,7 @@ $.extend(MapsLib, {
         // int               = snap to zoom level if ratio between current and nearby zoom radii
         //                       is greater than this (in either direction)
         snapToNearbyZoomIfRatioGreaterThan: 8
-    },
+    }
 
     // mapOverlays is an array of overlays, where each overlay can be either of the following:
     // A. a FusionTable ID
@@ -273,20 +299,20 @@ $.extend(MapsLib, {
     //            0 = completely invisible
     //            100 = completely opaque
 
-    mapOverlays: [ 
-        "1GBiESlYt_Lc9O5PLuLaii1L74HeY7G4O1fMh9OE", // FusionTable ID of another table
-        { 
-            imageURL: 'https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg',
-            cornerNW: [40.712216, -74.22655],
-            cornerSE: [40.773941, -74.12544],
-            opacityPercent: 60
-        },
-    ],
+    // mapOverlays: [ 
+    //     "1GBiESlYt_Lc9O5PLuLaii1L74HeY7G4O1fMh9OE", // FusionTable ID of another table
+    //     { 
+    //         imageURL: 'https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg',
+    //         cornerNW: [40.712216, -74.22655],
+    //         cornerSE: [40.773941, -74.12544],
+    //         opacityPercent: 60
+    //     },
+    // ],
 
     // If needed, you can change the visibility of these layers by calling this in script:
     //    MapsLib.setLayerVisibility([array of indices from bottom to top])
     // Examples: 
     //    MapsLib.setLayerVisibility([0,2]) will show only the first and third layers, and the third layer will be on top.
     //    MapsLib.setLayerVisibility([]) will hide all layers
-*/
+
 });
