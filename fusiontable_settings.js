@@ -176,8 +176,7 @@ $.extend(MapsLib, {
     // Contents of the About Page.  You can use "{title}" to insert your title.
     aboutPage: " \
         <h3>About {title}</h3> \
-        <p>This is a map of Toynbee tiles around the world. If you find any data that's missing or inaccurate, let us know <a href=''>here</a>.</p>\
-        <p>To use this template for your own Fusion Table data, <a href='https://github.com/sfbrigade/Mobile-Fusion-Tables' target='_blank'>clone this repository</a> and replace the fields inside fusiontable_settings.js to match your content.</p> \
+        <p>This is a map documenting a collection of Toynbee tiles around the world. The collection is curated by Justin Duerr, Colin Smith, and Steve Weinik.  The <a href='http://codeforsanfrancisco.org/Mobile-Fusion-Tables/'>template</a> for this app was built by the San Francisco brigade of Code for America and customized by Maneesha Sane.  If you find any information is missing or inaccurate, please <a href='https://docs.google.com/forms/d/19iN996I7xsWwZwA8uE-FHE2UR-WM05OAdKG5ewooLnY'>let us know</a>.
         ",
 
     // If you already customized your marker styles and infoboxes within the Fusion Table,
