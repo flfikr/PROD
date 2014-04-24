@@ -174,7 +174,7 @@ $.extend(MapsLib, {
     title: "Toynbee Tiles",
 
     // Contents of the About Page.  You can use "{title}" to insert your title.
-    aboutPage: "<h3>About {title}</h3> <p>This is a map documenting a collection of Toynbee tiles around the world. The collection is curated by Justin Duerr, Colin Smith, and Steve Weinik.  </p><p>The <a href='http://codeforsanfrancisco.org/Mobile-Fusion-Tables/'>template</a> for this app was built by the San Francisco brigade of Code for America and customized by Maneesha Sane.  </p> <p>If you find any information is missing or inaccurate, please <a href='https://docs.google.com/forms/d/19iN996I7xsWwZwA8uE-FHE2UR-WM05OAdKG5ewooLnY'>let us know</a>.</p>",
+    aboutPage: "<h3>About {title}</h3> <p>This is a map documenting a collection of Toynbee tiles around the world. The collection is curated by Justin Duerr, Colin Smith, and Steve Weinik.  </p><p>The <a href='http://codeforsanfrancisco.org/Mobile-Fusion-Tables/'>template</a> for this app was built by the San Francisco brigade of Code for America and customized by Maneesha Sane.  </p> <p>If you find any information is missing or inaccurate, please <a href='http://form.jotform.us/form/41133016296144'>let us know</a>.</p>" ,
 
     // If you already customized your marker styles and infoboxes within the Fusion Table,
     // you can use them by setting the style and template IDs here.
