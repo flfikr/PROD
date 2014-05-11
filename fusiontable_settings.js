@@ -222,7 +222,7 @@ $.extend(MapsLib, {
     customInfoboxHtml: "<b>{{row.Address}}, {{row.City}}, {{row.State}}, {{row.Country}}</b><br>" + 
 
                         "{{#if isListView}}"  +
-                         "Tile text:{{#if row.Tile_text}}<div style='white-space:pre-wrap; color:#484848;'>{{row.Tile_text}}</div>{{else}} Text not available" + 
+                         "Tile text:{{#if row.Tile_text}}<div style='white-space:pre-wrap; color:#484848;'>{{row.Tile_text}}</div>{{else}} Text not available<br>{{/if}}" + 
                         "{{#if row.image_link}}<div style = 'margin-left:10px;'><a href='{{row.image_link}}' target='_blank'><img src = '{{row.image_link}}' style = 'width: 300px;'></a>" + 
                          "{{#if row.Photo_Credit}}<br><i>Photo Credit: {{row.Photo_Credit}}</i></div>" + 
                          "{{/if}}" + //end if row.image_link
@@ -235,8 +235,8 @@ $.extend(MapsLib, {
                          "{{#if row.Photo_Credit}}<br><i>Photo Credit: {{row.Photo_Credit}}</i>" + 
                          "{{/if}}" + //end if row.image_link
                          "{{else}}No image available" + 
-                         "{{/if}}" + //end if row.Photo_Credit
-                         "{{/if}}", //extra end if??
+                         "{{/if}}", //end if row.Photo_Credit
+                    
 
     // customInfoboxHtml: " \
     //     {{#if isListView}} \
@@ -288,20 +288,20 @@ $.extend(MapsLib, {
         center: "Philadelphia, PA",
 
         // "X miles" or "X meters"
-        radius: "6 miles"
+        radius: "15 miles"
     },
 
     // Set useNearbyLocation to false if you don't want to get the user's location.
     useNearbyLocation: {
-        startAtNearbyLocation:      true,
+        startAtNearbyLocation:      false,
 
         // If true: use nearby location only if we're within default map bounds
         //          otherwise, post boundsExceededMessage (if non-empty) and use mapDefaultCenter.
-        onlyWithinDefaultMapBounds: true,
+        onlyWithinDefaultMapBounds: false,
         //boundsExceededMessage:      "Your location is far away from San Francisco.    Defaulting to city limits.",
 
         // use this zoom radius if starting at nearby location
-        nearbyZoomRadius:           "200 meters",
+        nearbyZoomRadius:           "1600 meters",
 
         // Snap to nearby zoom radius when user hits "Nearby"?    Options are:
         // true              = always snap to zoom level
