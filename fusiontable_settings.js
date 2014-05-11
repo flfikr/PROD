@@ -225,7 +225,7 @@ $.extend(MapsLib, {
                          "Tile text:{{#if row.Tile_text}}<div style='white-space:pre-wrap; color:#484848;'>{{row.Tile_text}}</div>{{else}} Text not available<br>{{/if}}" + 
                             "{{#if row.image_link}}" + 
                             "<div style = 'margin-left:10px;'><a href='{{row.image_link}}' target='_blank'><img src = '{{row.image_link}}' style = 'width: 300px;'></a>" + 
-                                "{{#if row.Photo_Credit}}<br><i>Photo Credit: {{row.Photo_Credit}}</i></div>" + 
+                                "{{#if row.Photo_Credit}}<br><i>Photo Cr+edit: {{row.Photo_Credit}}, {{row.Image_date}} </i></div>" + 
                             "{{/if}}" + //end if row.Photo_credit
                          "{{else}}No image available" + 
                          "{{/if}}" + //end if row.image_link
@@ -233,7 +233,7 @@ $.extend(MapsLib, {
 
                          "{{else}}" +
                          "{{#if row.image_link}}<a href='{{row.image_link}}' target='_blank'><img src = '{{row.image_link}}' style='width:100px;'></a>" + 
-                         "{{#if row.Photo_Credit}}<br><i>Photo Credit: {{row.Photo_Credit}}</i>" + 
+                         "{{#if row.Photo_Credit}}<br><i>Photo Credit: {{row.Photo_Credit}}, {{row.Image_date}}</i>" + 
                          "{{/if}}" + //end if row.PhotoCredit
                          "{{else}}No image available" + 
                          "{{/if}}" +  //end if row.Image Link
