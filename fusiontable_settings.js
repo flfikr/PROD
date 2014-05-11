@@ -219,7 +219,24 @@ $.extend(MapsLib, {
     // //                                  append "DESC" to sort in reverse
     // listViewSortByColumn: "name",
 
-    customInfoboxHtml: "<b>{{row.Address}}, {{row.City}}, {{row.State}}, {{row.Country}}</b><br>{{#if isListView}}Tile text:{{#if row.Tile_text}}<div style='white-space:pre-wrap; color:#484848;'>{{row.Tile_text}}</div>{{else}} Text not available{{/if}}{{else}}{{#if row.image_link}}<a href='{{row.image_link}}'><img src = '{{row.image_link}}' style='width:100px;'></a>{{#if row.Photo_Credit}}<br><i>Photo Credit: {{row.Photo_Credit}}</i>{{/if}}{{else}}No image available{{/if}}{{/if}}",
+    customInfoboxHtml: "<b>{{row.Address}}, {{row.City}}, {{row.State}}, {{row.Country}}</b><br>" + 
+
+                        "{{#if isListView}}"  +
+                         "Tile text:{{#if row.Tile_text}}<div style='white-space:pre-wrap; color:#484848;'>{{row.Tile_text}}</div>{{else}} Text not available" + 
+                        "{{#if row.image_link}}<div style = 'margin-left:10px;'><a href='{{row.image_link}}' target='_blank'><img src = '{{row.image_link}}' style = 'width: 300px;'></a>" + 
+                         "{{#if row.Photo_Credit}}<br><i>Photo Credit: {{row.Photo_Credit}}</i></div>" + 
+                         "{{/if}}" + //end if row.image_link
+                         "{{else}}No image available" + 
+                         "{{/if}}" + //end if row.Photo_Credit
+                         "{{/if}}" + //end if isListView
+
+                         "{{else}}" +
+                         "{{#if row.image_link}}<a href='{{row.image_link}}' target='_blank'><img src = '{{row.image_link}}' style='width:100px;'></a>" + 
+                         "{{#if row.Photo_Credit}}<br><i>Photo Credit: {{row.Photo_Credit}}</i>" + 
+                         "{{/if}}" + //end if row.image_link
+                         "{{else}}No image available" + 
+                         "{{/if}}" + //end if row.Photo_Credit
+                         "{{/if}}", //extra end if??
 
     // customInfoboxHtml: " \
     //     {{#if isListView}} \
