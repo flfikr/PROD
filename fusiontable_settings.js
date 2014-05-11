@@ -219,7 +219,7 @@ $.extend(MapsLib, {
     // //                                  append "DESC" to sort in reverse
     // listViewSortByColumn: "name",
 
-    customInfoboxHtml: "<b>{{row.Address}}, {{row.City}}, {{row.State}}, {{row.Country}}</b><br>" + 
+    customInfoboxHtml: "<b>{{row.Address}}, <br>{{row.City}}, {{row.State}}, {{row.Country}}</b><br>" + 
 
                         "{{#if isListView}}"  +
                          "Tile text:{{#if row.Tile_text}}<div style='white-space:pre-wrap; color:#484848;'>{{row.Tile_text}}</div>{{else}} Text not available<br>{{/if}}" + 
