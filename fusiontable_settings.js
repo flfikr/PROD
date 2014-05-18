@@ -118,6 +118,7 @@ $.extend(MapsLib, {
         columns: [
             {label: "Tile condition", type: "dropdown", entries: [
                 ["Show all", "'Condition' < 999", true],
+                ["Exclude tiles known to be gone", "'Condition' > 0"],
                 ["Good condition", "'Condition' = 3"],
                 ["Fair condition", "'Condition' = 2"],
                 ["Poor condition", "'Condition' = 1"],
