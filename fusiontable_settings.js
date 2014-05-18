@@ -226,14 +226,14 @@ $.extend(MapsLib, {
                             "{{#if row.image_link}}" + 
                             "<div style = 'margin-left:10px;'><a href='{{row.image_link}}' target='_blank'><img src = '{{row.image_link}}' style = 'width: 300px;'></a>" + 
                                 "{{#if row.Photo_Credit}}" +
-                                "<br><i>Photo Credit:  {{row.Photo_Credit}}</i>" + 
+                                "<br><i>Photo Credit: <a href = '{{row.credit_link}}' target = '_blank'>{{row.Photo_Credit}}</a></i>" + 
                                 "{{#if row.Image_date}}<i>, {{row.Image_date}} </i></div>" + 
                                 "{{else}}</div>{{/if}}" +
                             "{{/if}}" + //end if row.Photo_credit
                          "{{else}}No image available" + 
                          "{{/if}}" + //end if row.image_link
-
-
+                         "<br>" + 
+ 
                          "{{else}}" +
                          "{{#if row.image_link}}<a href='{{row.image_link}}' target='_blank'><img src = '{{row.image_link}}' style='width:100px;'></a>" + 
                          "{{#if row.Photo_Credit}}" + 
