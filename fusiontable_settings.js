@@ -135,52 +135,52 @@ $.extend(MapsLib, {
 
 
 
-            ]},  //close label: Has Image
+            ]}//,  //close label: Has Image
 
-            {label: "Photo Credit", type:"dropdown", entries: [
-                ["Show all", "", true],
-                ["Adam Greenfield","'Photo_Credit' CONTAINS 'Adam Greenfield'"],
-                ["Albert Yee","'Photo_Credit' CONTAINS 'Albert Yee'"],
-                ["Barbara Aylesworth","'Photo_Credit' CONTAINS 'Barbara Aylesworth'"],
-                ["Bethany Dusseau","'Photo_Credit' CONTAINS 'Bethany Dusseau'"],
-                ["Bill O'Neill","'Photo_Credit' CONTAINS 'Bill O\'Neill'"],
-                //[bill, "'Photo_Credit' CONTAINS 'Bill ONeill'"],
-                ["Bill Tozier","'Photo_Credit' CONTAINS 'Bill Tozier'"],
-                ["bleedingicon","'Photo_Credit' CONTAINS 'bleedingicon'"],
-                ["Brechtbug","'Photo_Credit' CONTAINS 'Brechtbug'"],
-                ["Cheryl Baker for Weird NJ [Magazine]","'Photo_Credit' CONTAINS 'Cheryl Baker for Weird NJ [Magazine]'"],
-                ["Colin Smith and Jon Foy","'Photo_Credit' CONTAINS 'Colin Smith and Jon Foy'"],
-                ["Dan Martranga","'Photo_Credit' CONTAINS 'Dan Martranga'"],
-                ["David Bradley","'Photo_Credit' CONTAINS 'David Bradley'"],
-                ["David Crowe","'Photo_Credit' CONTAINS 'David Crowe'"],
-                ["David Tucci","'Photo_Credit' CONTAINS 'David Tucci'"],
-                ["Dennis Gerasimov","'Photo_Credit' CONTAINS 'Dennis Gerasimov'"],
-                ["Howard Ferguson for Weird NJ Magazine","'Photo_Credit' CONTAINS 'Howard Ferguson for Weird NJ Magazine'"],
-                ["Jim Nolan","'Photo_Credit' CONTAINS 'Jim Nolan'"],
-                ["John Stoehr","'Photo_Credit' CONTAINS 'John Stoehr'"],
-                ["Johnny Landbeck","'Photo_Credit' CONTAINS 'Johnny Landbeck'"],
-                ["Johnpaul Golaski","'Photo_Credit' CONTAINS 'Johnpaul Golaski'"],
-                ["Josh Weigner","'Photo_Credit' CONTAINS 'Josh Weigner'"],
-                ["Justin Duerr","'Photo_Credit' CONTAINS 'Justin Duerr'"],
-                ["Kendall Whitehouse","'Photo_Credit' CONTAINS 'Kendall Whitehouse'"],
-                ["Kenneth Jacowitz","'Photo_Credit' CONTAINS 'Kenneth Jacowitz'"],
-                ["Kevin Riley","'Photo_Credit' CONTAINS 'Kevin Riley'"],
-                ["Kyle Cassidy","'Photo_Credit' CONTAINS 'Kyle Cassidy'"],
-                ["Manuel Barcia","'Photo_Credit' CONTAINS 'Manuel Barcia'"],
-                ["Margery Haufler","'Photo_Credit' CONTAINS 'Margery Haufler'"],
-                ["Matt Welch","'Photo_Credit' CONTAINS 'Matt Welch'"],
-                ["Paul Benson","'Photo_Credit' CONTAINS 'Paul Benson'"],
-                ["Peter Young","'Photo_Credit' CONTAINS 'Peter Young'"],
-                ["Philip Dewalt","'Photo_Credit' CONTAINS 'Philip Dewalt'"],
-                ["Raymond Skwire","'Photo_Credit' CONTAINS 'Raymond Skwire'"],
-                ["Reddit Toynbee Forum","'Photo_Credit' CONTAINS 'Reddit Toynbee Forum'"],
-                ["Steve Weinik","'Photo_Credit' CONTAINS 'Steve Weinik'"],
-                ["Tiago Teixeira","'Photo_Credit' CONTAINS 'Tiago Teixeira'"],
-                ["Wesley Johns","'Photo_Credit' CONTAINS 'Wesley Johns'"]
+            // {label: "Photo Credit", type:"dropdown", entries: [
+            //     ["Show all", "", true],
+            //     ["Adam Greenfield","'Photo_Credit' CONTAINS 'Adam Greenfield'"],
+            //     ["Albert Yee","'Photo_Credit' CONTAINS 'Albert Yee'"],
+            //     ["Barbara Aylesworth","'Photo_Credit' CONTAINS 'Barbara Aylesworth'"],
+            //     ["Bethany Dusseau","'Photo_Credit' CONTAINS 'Bethany Dusseau'"],
+            //     ["Bill O'Neill","'Photo_Credit' CONTAINS 'Bill O\'Neill'"],
+            //     //[bill, "'Photo_Credit' CONTAINS 'Bill ONeill'"],
+            //     ["Bill Tozier","'Photo_Credit' CONTAINS 'Bill Tozier'"],
+            //     ["bleedingicon","'Photo_Credit' CONTAINS 'bleedingicon'"],
+            //     ["Brechtbug","'Photo_Credit' CONTAINS 'Brechtbug'"],
+            //     ["Cheryl Baker for Weird NJ [Magazine]","'Photo_Credit' CONTAINS 'Cheryl Baker for Weird NJ [Magazine]'"],
+            //     ["Colin Smith and Jon Foy","'Photo_Credit' CONTAINS 'Colin Smith and Jon Foy'"],
+            //     ["Dan Martranga","'Photo_Credit' CONTAINS 'Dan Martranga'"],
+            //     ["David Bradley","'Photo_Credit' CONTAINS 'David Bradley'"],
+            //     ["David Crowe","'Photo_Credit' CONTAINS 'David Crowe'"],
+            //     ["David Tucci","'Photo_Credit' CONTAINS 'David Tucci'"],
+            //     ["Dennis Gerasimov","'Photo_Credit' CONTAINS 'Dennis Gerasimov'"],
+            //     ["Howard Ferguson for Weird NJ Magazine","'Photo_Credit' CONTAINS 'Howard Ferguson for Weird NJ Magazine'"],
+            //     ["Jim Nolan","'Photo_Credit' CONTAINS 'Jim Nolan'"],
+            //     ["John Stoehr","'Photo_Credit' CONTAINS 'John Stoehr'"],
+            //     ["Johnny Landbeck","'Photo_Credit' CONTAINS 'Johnny Landbeck'"],
+            //     ["Johnpaul Golaski","'Photo_Credit' CONTAINS 'Johnpaul Golaski'"],
+            //     ["Josh Weigner","'Photo_Credit' CONTAINS 'Josh Weigner'"],
+            //     ["Justin Duerr","'Photo_Credit' CONTAINS 'Justin Duerr'"],
+            //     ["Kendall Whitehouse","'Photo_Credit' CONTAINS 'Kendall Whitehouse'"],
+            //     ["Kenneth Jacowitz","'Photo_Credit' CONTAINS 'Kenneth Jacowitz'"],
+            //     ["Kevin Riley","'Photo_Credit' CONTAINS 'Kevin Riley'"],
+            //     ["Kyle Cassidy","'Photo_Credit' CONTAINS 'Kyle Cassidy'"],
+            //     ["Manuel Barcia","'Photo_Credit' CONTAINS 'Manuel Barcia'"],
+            //     ["Margery Haufler","'Photo_Credit' CONTAINS 'Margery Haufler'"],
+            //     ["Matt Welch","'Photo_Credit' CONTAINS 'Matt Welch'"],
+            //     ["Paul Benson","'Photo_Credit' CONTAINS 'Paul Benson'"],
+            //     ["Peter Young","'Photo_Credit' CONTAINS 'Peter Young'"],
+            //     ["Philip Dewalt","'Photo_Credit' CONTAINS 'Philip Dewalt'"],
+            //     ["Raymond Skwire","'Photo_Credit' CONTAINS 'Raymond Skwire'"],
+            //     ["Reddit Toynbee Forum","'Photo_Credit' CONTAINS 'Reddit Toynbee Forum'"],
+            //     ["Steve Weinik","'Photo_Credit' CONTAINS 'Steve Weinik'"],
+            //     ["Tiago Teixeira","'Photo_Credit' CONTAINS 'Tiago Teixeira'"],
+            //     ["Wesley Johns","'Photo_Credit' CONTAINS 'Wesley Johns'"]
 
 
 
-            ]}//close label: Photo Credit
+            // ]}//close label: Photo Credit
 
 
 
