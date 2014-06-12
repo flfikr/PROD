@@ -20,7 +20,6 @@
  */
 
 var MapsLib = MapsLib || {}; MapsLib.schemaVersion = 2;
-var bill = "Bill O'Neill"
 
 
     /////////////////////////
@@ -119,7 +118,6 @@ $.extend(MapsLib, {
         columns: [
             {label: "Tile condition", type: "dropdown", entries: [
                 ["Show all", "'Condition' < 999", true],
-                ["Exclude tiles known to be gone", "'Condition' > 0"],
                 ["Good condition", "'Condition' = 3"],
                 ["Fair condition", "'Condition' = 2"],
                 ["Poor condition", "'Condition' = 1"],
@@ -135,55 +133,7 @@ $.extend(MapsLib, {
 
 
 
-            ]}//,  //close label: Has Image
-
-            // {label: "Photo Credit", type:"dropdown", entries: [
-            //     ["Show all", "", true],
-            //     ["Adam Greenfield","'Photo_Credit' CONTAINS 'Adam Greenfield'"],
-            //     ["Albert Yee","'Photo_Credit' CONTAINS 'Albert Yee'"],
-            //     ["Barbara Aylesworth","'Photo_Credit' CONTAINS 'Barbara Aylesworth'"],
-            //     ["Bethany Dusseau","'Photo_Credit' CONTAINS 'Bethany Dusseau'"],
-            //     ["Bill O'Neill","'Photo_Credit' CONTAINS 'Bill O\'Neill'"],
-            //     //[bill, "'Photo_Credit' CONTAINS 'Bill ONeill'"],
-            //     ["Bill Tozier","'Photo_Credit' CONTAINS 'Bill Tozier'"],
-            //     ["bleedingicon","'Photo_Credit' CONTAINS 'bleedingicon'"],
-            //     ["Brechtbug","'Photo_Credit' CONTAINS 'Brechtbug'"],
-            //     ["Cheryl Baker for Weird NJ [Magazine]","'Photo_Credit' CONTAINS 'Cheryl Baker for Weird NJ [Magazine]'"],
-            //     ["Colin Smith and Jon Foy","'Photo_Credit' CONTAINS 'Colin Smith and Jon Foy'"],
-            //     ["Dan Martranga","'Photo_Credit' CONTAINS 'Dan Martranga'"],
-            //     ["David Bradley","'Photo_Credit' CONTAINS 'David Bradley'"],
-            //     ["David Crowe","'Photo_Credit' CONTAINS 'David Crowe'"],
-            //     ["David Tucci","'Photo_Credit' CONTAINS 'David Tucci'"],
-            //     ["Dennis Gerasimov","'Photo_Credit' CONTAINS 'Dennis Gerasimov'"],
-            //     ["Howard Ferguson for Weird NJ Magazine","'Photo_Credit' CONTAINS 'Howard Ferguson for Weird NJ Magazine'"],
-            //     ["Jim Nolan","'Photo_Credit' CONTAINS 'Jim Nolan'"],
-            //     ["John Stoehr","'Photo_Credit' CONTAINS 'John Stoehr'"],
-            //     ["Johnny Landbeck","'Photo_Credit' CONTAINS 'Johnny Landbeck'"],
-            //     ["Johnpaul Golaski","'Photo_Credit' CONTAINS 'Johnpaul Golaski'"],
-            //     ["Josh Weigner","'Photo_Credit' CONTAINS 'Josh Weigner'"],
-            //     ["Justin Duerr","'Photo_Credit' CONTAINS 'Justin Duerr'"],
-            //     ["Kendall Whitehouse","'Photo_Credit' CONTAINS 'Kendall Whitehouse'"],
-            //     ["Kenneth Jacowitz","'Photo_Credit' CONTAINS 'Kenneth Jacowitz'"],
-            //     ["Kevin Riley","'Photo_Credit' CONTAINS 'Kevin Riley'"],
-            //     ["Kyle Cassidy","'Photo_Credit' CONTAINS 'Kyle Cassidy'"],
-            //     ["Manuel Barcia","'Photo_Credit' CONTAINS 'Manuel Barcia'"],
-            //     ["Margery Haufler","'Photo_Credit' CONTAINS 'Margery Haufler'"],
-            //     ["Matt Welch","'Photo_Credit' CONTAINS 'Matt Welch'"],
-            //     ["Paul Benson","'Photo_Credit' CONTAINS 'Paul Benson'"],
-            //     ["Peter Young","'Photo_Credit' CONTAINS 'Peter Young'"],
-            //     ["Philip Dewalt","'Photo_Credit' CONTAINS 'Philip Dewalt'"],
-            //     ["Raymond Skwire","'Photo_Credit' CONTAINS 'Raymond Skwire'"],
-            //     ["Reddit Toynbee Forum","'Photo_Credit' CONTAINS 'Reddit Toynbee Forum'"],
-            //     ["Steve Weinik","'Photo_Credit' CONTAINS 'Steve Weinik'"],
-            //     ["Tiago Teixeira","'Photo_Credit' CONTAINS 'Tiago Teixeira'"],
-            //     ["Wesley Johns","'Photo_Credit' CONTAINS 'Wesley Johns'"]
-
-
-
-            // ]}//close label: Photo Credit
-
-
-
+            ]}
 
         ]//close columms
     }, //close searchPage
@@ -224,7 +174,7 @@ $.extend(MapsLib, {
     title: "Toynbee Tiles",
 
     // Contents of the About Page.  You can use "{title}" to insert your title.
-    aboutPage: "<h3>About {title}</h3> <p>This is a map documenting a collection of Toynbee tiles around the world. The collection is curated by Justin Duerr, Colin Smith, and <a href='http://photos.steveweinik.com/'>Steve Weinik</a>. </p><p>This mapping app was built by <a href='http://about.me/maneeshasane'>Maneesha Sane</a> using a template developed by <a href='http://codeforsanfrancisco.org/Mobile-Fusion-Tables/'>Code for America San Francisco</a>. </p> <p>If you find any information is missing or inaccurate, please <a href='http://form.jotform.us/form/41133016296144'>let us know</a>.</p>" ,
+    aboutPage: "<h3>About This Site</h3> <p> <a href = 'http://form.jotform.us/form/41133016296144'>REPORT A TILE HERE</a> </p><p>This map documents all known Toynbee Tiles reported and verified since the late 1980's.  The collection is curated by <a href='http://photos.steveweinik.com/'>Steve Weinik</a>. </p><p>This mapping app was built by <a href='http://about.me/maneeshasane'>Maneesha Sane</a> using a template developed by <a href='http://codeforsanfrancisco.org/Mobile-Fusion-Tables/'>Code for America San Francisco</a>. </p> <p>To report a tile or if you find any information is missing or inaccurate, please <a href='http://form.jotform.us/form/41133016296144'>let us know</a>.</p> <p>THANK YOU AND GOODBYE.</p>"  ,
 
     // If you already customized your marker styles and infoboxes within the Fusion Table,
     // you can use them by setting the style and template IDs here.
@@ -275,26 +225,18 @@ $.extend(MapsLib, {
                          "Tile text:{{#if row.Tile_text}}<div style='white-space:pre-wrap; color:#484848;'>{{row.Tile_text}}</div>{{else}} Text not available<br>{{/if}}" + 
                             "{{#if row.image_link}}" + 
                             "<div style = 'margin-left:10px;'><a href='{{row.image_link}}' target='_blank'><img src = '{{row.image_link}}' style = 'width: 300px;'></a>" + 
-                                "{{#if row.Photo_Credit}}" +
-                                "{{# if row.credit_link}}" + 
-                                    "<br><i>Photo Credit: <a href = '{{row.credit_link}}' target = '_blank'>{{row.Photo_Credit}}</a></i>" + 
-                                "{{else}} <br><i>{{row.Photo_Credit}}</i>{{/if}}" + //end if row.credit_link
+                                "{{#if row.Photo_Credit}}<br><i>Photo Credit: {{row.Photo_Credit}}</i>" + 
                                 "{{#if row.Image_date}}<i>, {{row.Image_date}} </i></div>" + 
                                 "{{else}}</div>{{/if}}" +
                             "{{/if}}" + //end if row.Photo_credit
                          "{{else}}No image available" + 
                          "{{/if}}" + //end if row.image_link
-                         "<br>" + 
- 
+
+
                          "{{else}}" +
                          "{{#if row.image_link}}<a href='{{row.image_link}}' target='_blank'><img src = '{{row.image_link}}' style='width:100px;'></a>" + 
-                         "{{#if row.Photo_Credit}}" + 
-
-
-                        "{{# if row.credit_link}}" + 
-                            "<br><i>Photo Credit: <a href = '{{row.credit_link}}' target = '_blank'>{{row.Photo_Credit}}</a></i>" + 
-                        "{{else}} <br><i>{{row.Photo_Credit}}</i>{{/if}}" + //end if row.credit_link
-                         "{{#if row.Image_date}}<i>, {{row.Image_date}}</i>{{/if}}" + //end  if row.Image_date
+                         "{{#if row.Photo_Credit}}<br><i>Photo Credit: {{row.Photo_Credit}}</i>" + 
+                         "{{#if row.Image_date}}<i>, {{row.Image_date}}</i>{{/if}}" + 
                          "{{/if}}" + //end if row.PhotoCredit
                          "{{else}}No image available" + 
                          "{{/if}}" +  //end if row.Image Link
