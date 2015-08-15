@@ -1531,7 +1531,7 @@ $.extend(MapsLib, {
         }
         // HACK: all we really want is the 10 rows that come after the existing MapsLib.listViewRows.
         //  but there's no way to get rows x to x+10 without also querying all the rows up to it.
-        var limitClause = " LIMIT " + (MapsLib.listViewRows.length + 10);
+        var limitClause = " LIMIT " + (MapsLib.listViewRows.length + 100);
         var centerPoint = (MapsLib.currentPinpoint != null) ? MapsLib.currentPinpoint : MapsLib.map.getCenter();
 
         if (centerPoint == null)
