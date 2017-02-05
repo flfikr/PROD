@@ -30,7 +30,7 @@ var MapsLib = MapsLib || {}; MapsLib.schemaVersion = 2;
     // See https://developers.google.com/fusiontables/docs/v1/migration_guide for more info
 
     // The encrypted Table ID of your Fusion Table (found under File => About)
-    MapsLib.fusionTableId = "1KjMxI_9vQAoIydWLeDsxaPCQF5uusih2O6LjIO9d";
+    MapsLib.fusionTableId = "1PKrTw5__lW0gygeLsxH0cfg7Um-e-J07n-f-8c4f"; //PFAGOLD
 
     // *New Fusion Tables Requirement* API key. found at https://code.google.com/apis/console/
     // *Important* this key is for demonstration purposes. please register your own.
@@ -108,37 +108,34 @@ $.extend(MapsLib, {
     //  Text fields for numerical columns use exact match only.  (If you want range categories, create a drop-down)
 
 */
-    searchPage: {
-
-        allColumns:false,
+     searchPage: {
+        allColumns: false,
         distanceFilter: {
-            entries: [ ["Anywhere", "0", true], ["2 blocks", "400 meters"], ["1/2 mile", ".5 miles"], ["1 mile"], ["2 miles"]]
-        }, //close distanceFilter
-
+ 			entries: [
+ 					["Anywhere", "0", true],
+ 					["2 blocks", "400 meters"],
+ 					["1/2 mile", ".5 miles"],
+ 					["1 mile"],
+ 					["2 miles"]
+ 					]
+        },
         columns: [
-            {label: "Tile condition", type: "dropdown", entries: [
-                ["Show all", "'Condition' < 999", true],
-                ["Any known condition", "'Condition' <= 3 AND 'Condition' >= 1"],
-                ["Good condition", "'Condition' = 3"],
-                ["Fair condition", "'Condition' = 2"],
-                ["Poor condition", "'Condition' = 1"],
-                ["Gone", "'Condition' = 0"],
-                ["Unknown", "'Condition' = 5"]
-
-            ]},//close label: Tile condition
-
-            {label: "Has image", type:"dropdown", entries: [
-                ["Show all", "", true],
-                ["Yes", "'image_link' contains 'http'"],
-                ["No", "'image_link' does not contain 'http'"]
-
-
-
-            ]}
-
-        ]//close columms
-    }, //close searchPage
-
+            {label: "Priority", type: "dropdown", entries: [
+                ["1", "'Priority' = 1", false],
+                ["2", "'Priority' = 2", false],
+                ["3", "'Priority' = 3", false],
+                ["All", "", true],
+            ]},//close label: Priority		
+            {label: "Unit", type: "dropdown", entries: [
+                ["1", "'Unit' = 1", false],
+                ["2", "'Unit' = 2", false],
+                ["3", "'Unit' = 3", false],
+                ["All", "", true],
+            ]},
+            {label: "Name", type: "text", column: "Name"},
+            {label: "SubDivision", type: "text", column: "SubDivision"},
+        ],
+    },
 
 /*
     searchPage: { 
@@ -172,10 +169,10 @@ $.extend(MapsLib, {
 
 
     // Title bar (including title of website)
-    title: "Toynbee Tiles",
+    title: "Plano Jowla Map",
 
     // Contents of the About Page.  You can use "{title}" to insert your title.
-    aboutPage: "<h3>About This Site</h3> <p> <a href = 'http://form.jotform.us/form/41133016296144'>REPORT A TILE HERE</a> </p><p>This map documents all known Toynbee Tiles reported and verified since the late 1980's.  The collection is curated by <a href='http://photos.steveweinik.com/'>Steve Weinik</a>. </p><p>This mapping app was built by <a href='http://about.me/maneeshasane'>Maneesha Sane</a> using a template developed by <a href='http://codeforsanfrancisco.org/Mobile-Fusion-Tables/'>Code for America San Francisco</a>. </p> <p>To report a tile or if you find any information is missing or inaccurate, please <a href='http://form.jotform.us/form/41133016296144'>let us know</a>.</p> <p>THANK YOU AND GOODBYE.</p>"  ,
+  //  aboutPage: "<h3>About This Site</h3> <p> <a href = 'http://form.jotform.us/form/41133016296144'>REPORT A TILE HERE</a> </p><p>This map documents all known Toynbee Tiles reported and verified since the late 1980's.  The collection is curated by <a href='http://photos.steveweinik.com/'>Steve Weinik</a>. </p><p>This mapping app was built by <a href='http://about.me/maneeshasane'>Maneesha Sane</a> using a template developed by <a href='http://codeforsanfrancisco.org/Mobile-Fusion-Tables/'>Code for America San Francisco</a>. </p> <p>To report a tile or if you find any information is missing or inaccurate, please <a href='http://form.jotform.us/form/41133016296144'>let us know</a>.</p> <p>THANK YOU AND GOODBYE.</p>"  ,
 
     // If you already customized your marker styles and infoboxes within the Fusion Table,
     // you can use them by setting the style and template IDs here.
@@ -219,7 +216,11 @@ $.extend(MapsLib, {
     // // listViewSortByColumn (optional): specify column to sort by, instead of sorting by distance
     // //                                  append "DESC" to sort in reverse
     // listViewSortByColumn: "name",
-
+    customInfoboxHtml: 
+	"<b>ADD : </b><a href=https://maps.google.com?saddr=Current+Location&daddr={{row.Latitude}},{{row.Longtitude}}>{{row.Address}}</a>, <br> <b> SUB</b>: {{row.SubDivision}}, <br><i>Name</i> : <b>{{row.Name}}</b><br>" +
+    "Last Visit:{{#if row.VisitDate}}<div style='white-space:pre-wrap; color:#484848;'>{{row.VisitDate}} : {{row.Comments}}</div>{{else}} <br>{{/if}}" + 
+	"<a href=\"https://docs.google.com/forms/d/1cKy88gGEvGyQylv_BGBUG-2a-XK93XxUjRCC91bhi0o/viewform?entry.589985326={{row.ID}}&entry.459245489={{row.Name}}\" target=\"_blank\">Details</a>",	    
+/*
     customInfoboxHtml: "<b>{{row.Address}}, <br>{{row.City}}, {{row.State}}, {{row.Country}}</b><br>" + 
 
                         "{{#if isListView}}"  +
@@ -242,7 +243,7 @@ $.extend(MapsLib, {
                          "{{else}}No image available" + 
                          "{{/if}}" +  //end if row.Image Link
                          "{{/if}}" , //end if isListView
-
+*/
     // customInfoboxHtml: " \
     //     {{#if isListView}} \
     //         <div> \
@@ -280,7 +281,7 @@ $.extend(MapsLib, {
     // 4. MAP PREFERENCES //
     ////////////////////////
 
-
+/*
     // Override the location column in your Fusion Table (useful if you have multiple columns)
     // NOTE: if you have "latitude" and "longitude" columns, just use "latitude"
     //locationColumn:  "latitude",
@@ -341,5 +342,5 @@ $.extend(MapsLib, {
     // Examples: 
     //    MapsLib.setLayerVisibility([0,2]) will show only the first and third layers, and the third layer will be on top.
     //    MapsLib.setLayerVisibility([]) will hide all layers
-
+*/
 });
