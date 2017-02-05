@@ -219,7 +219,7 @@ $.extend(MapsLib, {
     customInfoboxHtml: 
 	"<b>ADD : </b><a href=https://maps.google.com?saddr=Current+Location&daddr={{row.Latitude}},{{row.Longtitude}}>{{row.Address}}</a>, <br> <b> SUB</b>: {{row.SubDivision}}, <br><i>Name</i> : <b>{{row.Name}}</b><br>" +
     "Last Visit:{{#if row.VisitDate}}<div style='white-space:pre-wrap; color:#484848;'>{{row.VisitDate}} : {{row.Comments}}</div>{{else}} <br>{{/if}}" + 
-	"<a href=\"https://docs.google.com/forms/d/1cKy88gGEvGyQylv_BGBUG-2a-XK93XxUjRCC91bhi0o/viewform?entry.589985326={{row.ID}}&entry.459245489={{row.Name}}\" target=\"_blank\">Details</a>",	    
+	"<a href=\"https://docs.google.com/forms/d/e/1FAIpQLSclYbRuQlD5_aZcEY-Ov6KqUQ8gtR_J4XQ4tFH95KUiMgODkQ/viewform?entry.589985326={{row.ID}}&entry.459245489={{row.Name}}&entry.322317336=visited\" target=\"_blank\">Details</a>",	    
 /*
     customInfoboxHtml: "<b>{{row.Address}}, <br>{{row.City}}, {{row.State}}, {{row.Country}}</b><br>" + 
 
