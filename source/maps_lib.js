@@ -11,6 +11,15 @@
  */
 
 var MapsLib = MapsLib || {};
+$.urlParam = function(name){
+	var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	if (results==null){
+       return null;
+    }
+    else{
+       return results[1] || 0;
+    }
+}
 $.extend(MapsLib, {
     // map and positions
     map:                null, // gets initialized below
@@ -281,13 +290,17 @@ $.extend(MapsLib, {
     initialize: function() {
         // override table ID if passed in through URL
         var urltokens = window.location.href.split("?");
-        if (urltokens.length >= 2)
+        console.log('tokens '+urltokens);
+		if (urltokens.length >= 2)
         {
-            var first_arg = urltokens[1].split("#")[0].split("&")[0];
+            console.log('tokens1 '+urltokens[1]);
+			var first_arg = urltokens[1].split("#")[0].split("&")[0];
+			var second_arg = urltokens[1].split("#")[0].split("&");
+			console.log('first_arg '+first_arg+' second arg '+second_arg);
             if (first_arg.indexOf("key=") == 0)
             {
                 MapsLib.fusionTableId = first_arg.substring(4, first_arg.length);
-                console.log(MapsLib.fusionTableId);
+                console.log('table id passed is '+MapsLib.fusionTableId);
             }
         }
 
@@ -1096,7 +1109,33 @@ $.extend(MapsLib, {
         });
 
         MapsLib.customSearchFilter = whereClauses.join(" AND ");
-        var whereClause = MapsLib.locationColumn + " not equal to ''";
+        var whereClause = MapsLib.locationColumn + " not equal to '' AND Marker NOT EQUAL TO 'placemark_circle_highlight'  ";
+		//and VisitDate > '2017.8.12'
+		var addlClause=null;
+		//var whereClause = MapsLib.locationColumn + " not equal to '' and City='Plano'";
+		var city=decodeURIComponent($.urlParam('City'));
+		console.log('cityparam '+city);
+		if (city!="null"){			
+			var temp=city.replace("=="," AND City = ");			
+			var addlClause=temp.replace("!="," AND City NOT EQUAL TO ");	
+			console.log('clause  is '+addlClause);
+			whereClause += addlClause;
+		}
+		
+		var priority=decodeURIComponent($.urlParam('P'));		
+		if (priority!="null"){
+			var days=0;
+			days=30*priority;
+			console.log('number of days ' +days);
+			var d =new Date();
+			d.setDate(d.getDate() - days);
+			addlClause =" AND  VisitDate < '"+d.getFullYear()+"."+(d.getMonth()+1)+"."+d.getDate()+"'";
+			console.log('clause  is '+addlClause);
+			whereClause += addlClause;
+		}
+		
+		console.log('add additional clause here');
+		console.log(whereClauses);
         if (MapsLib.customSearchFilter.length > 0)
         {
             whereClause += " AND " + MapsLib.customSearchFilter;
