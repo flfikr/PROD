@@ -30,7 +30,9 @@ var MapsLib = MapsLib || {}; MapsLib.schemaVersion = 2;
     // See https://developers.google.com/fusiontables/docs/v1/migration_guide for more info
 
     // The encrypted Table ID of your Fusion Table (found under File => About)
-    MapsLib.fusionTableId = "1PKrTw5__lW0gygeLsxH0cfg7Um-e-J07n-f-8c4f"; //PFAGOLD
+    MapsLib.fusionTableId ="";
+    //"1PKrTw5__lW0gygeLsxH0cfg7Um-e-J07n-f-8c4f"; //PFAGOLD
+    // 1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz ; DFWDB
 
     // *New Fusion Tables Requirement* API key. found at https://code.google.com/apis/console/
     // *Important* this key is for demonstration purposes. please register your own.
@@ -120,12 +122,12 @@ $.extend(MapsLib, {
  					]
         },
         columns: [
-            {label: "Priority", type: "dropdown", entries: [
+          /*  {label: "Priority", type: "dropdown", entries: [
                 ["1", "'Priority' = 1", false],
                 ["2", "'Priority' = 2", false],
                 ["3", "'Priority' = 3", false],
                 ["All", "", true],
-            ]},//close label: Priority		
+            ]},//close label: Priority	*/	
             {label: "Unit", type: "dropdown", entries: [
                 ["1", "'Unit' = 1", false],
                 ["2", "'Unit' = 2", false],
@@ -169,7 +171,7 @@ $.extend(MapsLib, {
 
 
     // Title bar (including title of website)
-    title: "Plano Jowla Map",
+    title: "Jowla Map",
 
     // Contents of the About Page.  You can use "{title}" to insert your title.
   //  aboutPage: "<h3>About This Site</h3> <p> <a href = 'http://form.jotform.us/form/41133016296144'>REPORT A TILE HERE</a> </p><p>This map documents all known Toynbee Tiles reported and verified since the late 1980's.  The collection is curated by <a href='http://photos.steveweinik.com/'>Steve Weinik</a>. </p><p>This mapping app was built by <a href='http://about.me/maneeshasane'>Maneesha Sane</a> using a template developed by <a href='http://codeforsanfrancisco.org/Mobile-Fusion-Tables/'>Code for America San Francisco</a>. </p> <p>To report a tile or if you find any information is missing or inaccurate, please <a href='http://form.jotform.us/form/41133016296144'>let us know</a>.</p> <p>THANK YOU AND GOODBYE.</p>"  ,
@@ -217,9 +219,10 @@ $.extend(MapsLib, {
     // //                                  append "DESC" to sort in reverse
     // listViewSortByColumn: "name",
     customInfoboxHtml: 
-	"<b>ADD : </b><a href=https://maps.google.com?saddr=Current+Location&daddr={{row.Latitude}},{{row.Longtitude}}>{{row.Address}}</a>, <br> <b> SUB</b>: {{row.SubDivision}}, <br><i>Name</i> : <b>{{row.Name}}</b><br>" +
-    "Last Visit:{{#if row.VisitDate}}<div style='white-space:pre-wrap; color:#484848;'>{{row.VisitDate}} : {{row.Comments}}</div>{{else}} <br>{{/if}}" + 
-	"<a href=\"https://docs.google.com/forms/d/e/1FAIpQLSclYbRuQlD5_aZcEY-Ov6KqUQ8gtR_J4XQ4tFH95KUiMgODkQ/viewform?entry.589985326={{row.ID}}&entry.459245489={{row.Name}}&entry.322317336=visited\" target=\"_blank\">Details</a>",	    
+    "<b>ADD : </b><a href=https://maps.google.com?saddr=Current+Location&daddr={{row.Latitude}},{{row.Longtitude}}>{{row.Address}}</a>, <br> <b> SUB</b>: {{row.SubDivision}}, <br><i>Name</i> : <b>{{row.Name}}</b><br>" +
+    "Last Visit:{{#if row.VisitDate}}<div style='white-space:pre-wrap; color:#484848;'>{{row.VisitDate}} : </div>{{else}} <br>{{/if}}" +
+    //"Last Visit:{{#if row.VisitDate}}<div style='white-space:pre-wrap; color:#484848;'>{{row.VisitDate}} : {{row.Comments}}</div>{{else}} <br>{{/if}}" + 	
+    "<a href=\"https://docs.google.com/forms/d/e/1FAIpQLSclYbRuQlD5_aZcEY-Ov6KqUQ8gtR_J4XQ4tFH95KUiMgODkQ/viewform?entry.589985326={{row.ID}}&entry.459245489={{row.Name}}&entry.322317336=visited\" target=\"_blank\">Details</a>",	    
 /*
     customInfoboxHtml: "<b>{{row.Address}}, <br>{{row.City}}, {{row.State}}, {{row.Country}}</b><br>" + 
 
