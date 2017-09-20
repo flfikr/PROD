@@ -1124,7 +1124,7 @@ $.extend(MapsLib, {
 		
 		var priority=decodeURIComponent($.urlParam('P'));		
 		if (priority!="null"){
-			if (priority =0){
+			if (priority ==0){
 				addlClause =" AND  VisitDate ='' ";
 			}else{
 				var days=0;
