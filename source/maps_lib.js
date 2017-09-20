@@ -1124,16 +1124,36 @@ $.extend(MapsLib, {
 		
 		var priority=decodeURIComponent($.urlParam('P'));		
 		if (priority!="null"){
-			var days=0;
-			days=30*priority;
-			console.log('number of days ' +days);
-			var d =new Date();
-			d.setDate(d.getDate() - days);
-			addlClause =" AND  VisitDate < '"+d.getFullYear()+"."+(d.getMonth()+1)+"."+d.getDate()+"'";
+			if (priority =0){
+				addlClause =" AND  VisitDate ='' ";
+			}else{
+				var days=0;
+				days=30*priority;
+				console.log('number of days ' +days);
+				var d =new Date();
+				d.setDate(d.getDate() - days);
+				addlClause =" AND  VisitDate < '"+d.getFullYear()+"."+(d.getMonth()+1)+"."+d.getDate()+"'";
+			}
 			console.log('clause  is '+addlClause);
 			whereClause += addlClause;
 		}
-		
+		var sts=decodeURIComponent($.urlParam('S'));		
+		if (sts!="null"){
+			if (sts ="S"){
+				addlClause =" AND  Status CONTAINS 'Student' ";
+			}
+			if (sts ="K"){
+				addlClause =" AND  Status CONTAINS 'Khususi' ";
+			}
+			if (sts ="F"){
+				addlClause =" AND  Status CONTAINS 'Follow' ";
+			}			
+			if (sts ="W"){
+				addlClause =" AND  Status CONTAINS 'Worker' ";
+			}
+			console.log('clause  is '+addlClause);
+			whereClause += addlClause;
+		}			
 		console.log('add additional clause here');
 		console.log(whereClauses);
         if (MapsLib.customSearchFilter.length > 0)
