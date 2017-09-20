@@ -31,12 +31,10 @@ var MapsLib = MapsLib || {}; MapsLib.schemaVersion = 2;
 
     // The encrypted Table ID of your Fusion Table (found under File => About)
     MapsLib.fusionTableId ="";
-    //"1PKrTw5__lW0gygeLsxH0cfg7Um-e-J07n-f-8c4f"; //PFAGOLD
-    // 1_TK399AVdWX6AMKF9dnhvrb4nnLT4TsJKJGEdkKz ; DFWDB
 
     // *New Fusion Tables Requirement* API key. found at https://code.google.com/apis/console/
     // *Important* this key is for demonstration purposes. please register your own.
-    MapsLib.googleApiKey ="AIzaSyAt-73WNp-LVpud_sSlwJ7lk73sYSNq_4o";
+    MapsLib.googleApiKey ="AIzaSyD5MDgJ8dwYPb9y1Dn7A8Bt5IJ__43D5cs";
     
 
     // DONE!  YOU COULD DELETE EVERYTHING AFTER THIS POINT AND STILL HAVE A WORKING APP.
@@ -222,8 +220,7 @@ $.extend(MapsLib, {
     "<b>ADD : </b><a href=https://maps.google.com?saddr=Current+Location&daddr={{row.Latitude}},{{row.Longtitude}}>{{row.Address}}</a>, <br> <b> SUB</b>: {{row.SubDivision}}, <br><i>Name</i> : <b>{{row.Name}}</b><br>" +
     "Last Visit:{{#if row.VisitDate}}<div style='white-space:pre-wrap; color:#484848;'>{{row.VisitDate}} : </div>{{else}} <br>{{/if}}" +
     //"Last Visit:{{#if row.VisitDate}}<div style='white-space:pre-wrap; color:#484848;'>{{row.VisitDate}} : {{row.Comments}}</div>{{else}} <br>{{/if}}" + 	
-    //"<a href=\"https://docs.google.com/forms/d/e/1FAIpQLSclYbRuQlD5_aZcEY-Ov6KqUQ8gtR_J4XQ4tFH95KUiMgODkQ/viewform?entry.589985326={{row.ID}}&entry.459245489={{row.Name}}&entry.322317336=visited\" target=\"_blank\">Details</a>",	    
-    "<a href=\"https://dailyfikr.github.io/VisitDetails.html?ID={{row.ID}}&DB={{row.DB}}&Name={{row.Name}}&Sts={{row.Status}}\" target=\"_blank\">Details</a>",
+    "<a href=\"https://flfikr.github.io/VisitDetails.html?ID={{row.ID}}&DB={{row.DB}}&Name={{row.Name}}&Sts={{row.Status}}\" target=\"_blank\">Details</a>",
     /*
     customInfoboxHtml: "<b>{{row.Address}}, <br>{{row.City}}, {{row.State}}, {{row.Country}}</b><br>" + 
 
