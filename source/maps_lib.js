@@ -1139,16 +1139,17 @@ $.extend(MapsLib, {
 		}
 		var sts=decodeURIComponent($.urlParam('S'));		
 		if (sts!="null"){
-			if (sts ="S"){
+			console.log('Status request  is '+sts); 
+			if (sts =="S"){
 				addlClause =" AND  Status CONTAINS 'Student' ";
 			}
-			if (sts ="K"){
+			if (sts =="K"){
 				addlClause =" AND  Status CONTAINS 'Khususi' ";
 			}
-			if (sts ="F"){
+			if (sts =="F"){
 				addlClause =" AND  Status CONTAINS 'Follow' ";
 			}			
-			if (sts ="W"){
+			if (sts =="W"){
 				addlClause =" AND  Status CONTAINS 'Worker' ";
 			}
 			console.log('clause  is '+addlClause);
